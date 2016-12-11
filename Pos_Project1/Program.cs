@@ -11,6 +11,7 @@ namespace Pos_Project1
         static void Main(string[] args)
         {
             Console.WriteLine("DU NUTTEN PRIUS!!!");
+            Console.WriteLine("LOL");
         }
     }
 }
