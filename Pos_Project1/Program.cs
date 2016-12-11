@@ -10,7 +10,15 @@ namespace Pos_Project1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Yo, sup");
+            /* 
+             1. Methode, die CSV ausliest und in LIST<Fahrzeug> speichert.
+             2. Methode, die LIST<Fahrzeuge> mit LINQ als XML speichert.
+             3. Methode "Angebote" in Personenverwaltung, die Interessen und Angebote vergleicht.
+             
+             
+             
+             
+             */
         }
     }
 }
