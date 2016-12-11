@@ -10,6 +10,7 @@ namespace Pos_Project1
     {
         static void Main(string[] args)
         {
+            sdasd
         }
     }
 }
