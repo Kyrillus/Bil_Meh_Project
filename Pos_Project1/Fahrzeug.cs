@@ -8,7 +8,7 @@ namespace Pos_Project1
 {
     class Fahrzeug
     {
-        private DateTime dateCrawled;
+        private DateTime? dateCrawled;
         private String name;
         private String seller;
         private String offerType;
@@ -24,13 +24,36 @@ namespace Pos_Project1
         private String fuelType;
         private String brand;
         private String notRepairedDamage;
-        private DateTime dateCreated;
+        private DateTime? dateCreated;
         private int nrOfPictures;
         private int postalCode;
-        private DateTime lastSeen;
+        private DateTime? lastSeen;
 
+        public Fahrzeug(DateTime dateCrawled, string name, string seller, string offerType, int price, string abtest, string vehicleType, int yearOfRegistration, string gearbox, int power, string model, int kilometer, int monthOfRegistration, string fuelType, string brand, string notRepairedDamage, DateTime dateCreated, int nrOfPictures, int postalCode, DateTime lastSeen)
+        {
+            this.dateCrawled = dateCrawled;
+            this.name = name;
+            this.seller = seller;
+            this.offerType = offerType;
+            this.price = price;
+            this.abtest = abtest;
+            this.vehicleType = vehicleType;
+            this.yearOfRegistration = yearOfRegistration;
+            this.gearbox = gearbox;
+            this.power = power;
+            this.model = model;
+            this.kilometer = kilometer;
+            this.monthOfRegistration = monthOfRegistration;
+            this.fuelType = fuelType;
+            this.brand = brand;
+            this.notRepairedDamage = notRepairedDamage;
+            this.dateCreated = dateCreated;
+            this.nrOfPictures = nrOfPictures;
+            this.postalCode = postalCode;
+            this.lastSeen = lastSeen;
+        }
 
-        public DateTime DateCrawled
+        public DateTime? DateCrawled
         {
             get
             {
@@ -227,7 +250,7 @@ namespace Pos_Project1
             }
         }
 
-        public DateTime DateCreated
+        public DateTime? DateCreated
         {
             get
             {
@@ -266,7 +289,7 @@ namespace Pos_Project1
             }
         }
 
-        public DateTime LastSeen
+        public DateTime? LastSeen
         {
             get
             {
