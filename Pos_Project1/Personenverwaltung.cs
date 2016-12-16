@@ -20,7 +20,7 @@ namespace Pos_Project1
 
         public void readFahrzeuge()
         {
-            StreamReader reader = new StreamReader(File.OpenRead("../Fahrzeug.csv"));
+            StreamReader reader = new StreamReader(File.OpenRead("Fahrzeug.csv"));
             string line;
             while ((line = reader.ReadLine()) != null)
             {

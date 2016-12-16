@@ -15,6 +15,7 @@ namespace Pos_Project1
             personen.Add(p);
             Personenverwaltung pv = new Personenverwaltung(personen);
             
+            pv.readFahrzeuge();
             /* 
              1. Methode, die CSV ausliest und in LIST<Fahrzeug> speichert.
              2. Methode, die LIST<Fahrzeuge> mit LINQ als XML speichert.
