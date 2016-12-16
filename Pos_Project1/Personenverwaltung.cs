@@ -12,22 +12,24 @@ namespace Pos_Project1
         private List<Person> personen;
         private List<Fahrzeug> angebote;
 
-        public Personenverwaltung(List<Person> personen)
+        public Personenverwaltung(/*List<Person> personen*/)
         {
             Personen = personen;
             readFahrzeuge();
-;        }
+            
+        }
 
         public void readFahrzeuge()
         {
-            StreamReader reader = new StreamReader(File.OpenRead("../Fahrzeug.csv"));
+            StreamReader reader = new StreamReader(File.OpenRead("../../Fahrzeug.csv"));
             string line;
             while ((line = reader.ReadLine()) != null)
             {
+                //dateCrawled,name,seller,offerType,price,abtest,vehicleType,yearOfRegistration,gearbox,powerPS,model,kilometer,monthOfRegistration,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen
                 DateTime? dt = null;
                 Fahrzeug fz;
                 String[] arr = line.Split(',');
-                DateTime? dat = arr[0] == "" ?  dt : Convert.ToDateTime(arr[0]);
+                DateTime? dat = arr[0] == "" ? dt : Convert.ToDateTime(arr[0]);
                 String name = arr[1];
                 String seller = arr[2];
                 String offerType = arr[3];
@@ -46,8 +48,9 @@ namespace Pos_Project1
                 DateTime? dateCreated = arr[16] == "" ? dt : Convert.ToDateTime(arr[16]);
                 int nrOfPictures = arr[17] == "" ? 0 : Convert.ToInt32(arr[17]);
                 int postalCode = arr[18] == "" ? 0 : Convert.ToInt32(arr[18]);
-                DateTime? lastSeen = arr[19]== "" ? dt : Convert.ToDateTime(arr[19]);
-                fz = new Fahrzeug(dat,name,seller,offerType,price,abtest,vehicleType,yearOfReg,gearBox,power,model,kilometer,monthOfReg,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen);
+                DateTime? lastSeen = arr[19] == "" ? dt : Convert.ToDateTime(arr[19]);
+                //fz = new Fahrzeug(dat, name, seller, offerType, price, abtest, vehicleType, yearOfReg, gearBox, power, model, kilometer, monthOfReg, fuelType, brand, notRepairedDamage, dateCreated, nrOfPictures, postalCode, lastSeen);
+                fz = new Fahrzeug(null, "daw", "dawdawd", "dawd", 199, "dawd", "dawd", 7, "fa", 100, "daw", 10000, 9, "dwawd", "daw", "ja", null, 19, 29, null);
                 angebote.Add(fz);
             }
 

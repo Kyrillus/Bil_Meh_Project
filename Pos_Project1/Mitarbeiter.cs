@@ -11,7 +11,7 @@ namespace Pos_Project1
         private String spezialisierung;
         private float gehalt;
         
-        public Mitarbeiter(int kundenNr, string vorname, string nachname, string telNr, string anrede, string adresse, string spezialisierung,float gehalt) : base(kundenNr, vorname, nachname, telNr, anrede, adresse)
+        public Mitarbeiter( string vorname, string nachname, string telNr, string anrede, string adresse, string spezialisierung,float gehalt) : base( vorname, nachname, telNr, anrede, adresse)
         {
             Spezialisierung = spezialisierung;
             Gehalt = gehalt;

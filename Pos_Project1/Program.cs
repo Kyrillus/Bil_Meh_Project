@@ -10,7 +10,16 @@ namespace Pos_Project1
     {
         static void Main(string[] args)
         {
-            Personenverwaltung pv = new Personenverwaltung(new Person());
+            List<Person> lp = new List<Person>();
+            Kunde p1 = new Kunde(1,"dawdwa", "nahfckwjnfkw", "+93786213873621", "asdfljas", "cook :D", new List<Fahrzeug>());
+            Kunde p2= new Kunde(1, "dawdwa", "nahfckwjnfkw", "+93786213873621", "asdfljas", "cook :D", new List<Fahrzeug>());
+            Kunde p3= new Kunde(1, "dawdwa", "nahfckwjnfkw", "+93786213873621", "asdfljas", "cook :D", new List<Fahrzeug>());
+            Kunde p4 = new Kunde(1, "dawdwa", "nahfckwjnfkw", "+93786213873621", "asdfljas", "cook :D", new List<Fahrzeug>());
+            lp.Add(p1);
+            lp.Add(p2);
+            lp.Add(p3);
+            lp.Add(p4);
+            Personenverwaltung pv = new Personenverwaltung();
             /* 
              1. Methode, die CSV ausliest und in LIST<Fahrzeug> speichert.
              2. Methode, die LIST<Fahrzeuge> mit LINQ als XML speichert.

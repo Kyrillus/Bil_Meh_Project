@@ -31,9 +31,9 @@ namespace Pos_Project1
 
         public Fahrzeug(DateTime? dateCrawled, string name, string seller, string offerType, int price, string abtest, string vehicleType, int yearOfRegistration, string gearbox, int power, string model, int kilometer, int monthOfRegistration, string fuelType, string brand, string notRepairedDamage, DateTime? dateCreated, int nrOfPictures, int postalCode, DateTime? lastSeen)
         {
-            this.dateCrawled = dateCrawled;
-            this.name = name;
-            this.seller = seller;
+            DateCrawled = dateCrawled;
+            Name = name;
+            Seller = seller;
             this.offerType = offerType;
             this.price = price;
             this.abtest = abtest;
