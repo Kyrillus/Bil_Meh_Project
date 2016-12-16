@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pos_Project1
 {
-    class Fahrzeug
+    class Fahrzeuge
     {
+
         private DateTime? dateCrawled;
         private String name;
         private String seller;
@@ -29,12 +30,12 @@ namespace Pos_Project1
         private int postalCode;
         private DateTime? lastSeen;
 
-        public Fahrzeug(DateTime? dateCrawled, string name, string seller, string offerType, int price, string abtest, string vehicleType, int yearOfRegistration, string gearbox, int power, string model, int kilometer, int monthOfRegistration, string fuelType, string brand, string notRepairedDamage, DateTime? dateCreated, int nrOfPictures, int postalCode, DateTime? lastSeen)
+        public Fahrzeuge(DateTime? dateCrawled, string name, string seller, string offerType, int price, string abtest, string vehicleType, int yearOfRegistration, string gearbox, int power, string model, int kilometer, int monthOfRegistration, string fuelType, string brand, string notRepairedDamage, DateTime? dateCreated, int nrOfPictures, int postalCode, DateTime? lastSeen)
         {
 
-            DateCrawled = dateCrawled;
-            Name = name;
-            Seller = seller;
+            this.dateCrawled = dateCrawled;
+            this.name = name;
+            this.seller = seller;
             this.offerType = offerType;
             this.price = price;
             this.abtest = abtest;
@@ -132,7 +133,7 @@ namespace Pos_Project1
             }
         }
 
-       
+
 
         public string Gearbox
         {
@@ -245,6 +246,7 @@ namespace Pos_Project1
                 return notRepairedDamage;
             }
 
+        
             set
             {
                 notRepairedDamage = value;
