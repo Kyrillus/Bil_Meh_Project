@@ -8,7 +8,6 @@ namespace Pos_Project1
 {
     class Fahrzeug
     {
-
         private DateTime? dateCrawled;
         private String name;
         private String seller;
