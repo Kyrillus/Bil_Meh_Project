@@ -46,7 +46,7 @@
     <Compile Include="Fahrzeug.cs" />
     <Compile Include="Kunde.cs" />
     <Compile Include="Mitarbeiter.cs" />
-    <Compile Include="Perosn.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Personenverwaltung.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

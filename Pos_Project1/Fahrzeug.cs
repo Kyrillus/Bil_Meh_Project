@@ -29,7 +29,7 @@ namespace Pos_Project1
         private int postalCode;
         private DateTime? lastSeen;
 
-        public Fahrzeug(DateTime dateCrawled, string name, string seller, string offerType, int price, string abtest, string vehicleType, int yearOfRegistration, string gearbox, int power, string model, int kilometer, int monthOfRegistration, string fuelType, string brand, string notRepairedDamage, DateTime dateCreated, int nrOfPictures, int postalCode, DateTime lastSeen)
+        public Fahrzeug(DateTime? dateCrawled, string name, string seller, string offerType, int price, string abtest, string vehicleType, int yearOfRegistration, string gearbox, int power, string model, int kilometer, int monthOfRegistration, string fuelType, string brand, string notRepairedDamage, DateTime? dateCreated, int nrOfPictures, int postalCode, DateTime? lastSeen)
         {
             this.dateCrawled = dateCrawled;
             this.name = name;

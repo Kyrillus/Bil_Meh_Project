@@ -8,16 +8,16 @@ namespace Pos_Project1
 {
     class Person
     {
-        private int kundenNr;
+        private int kundenNr = 1;
         private String vorname;
         private String nachname;
         private String telNr;
         private String anrede;
         private String adresse;
 
-        public Person(int kundenNr, String vorname, String nachname, String telNr, String anrede, String adresse)
+        public Person(String vorname, String nachname, String telNr, String anrede, String adresse)
         {
-            KundenNr = kundenNr;
+            ++KundenNr;
             Vorname = vorname;
             Nachname = nachname;
             TelNr = telNr;
