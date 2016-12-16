@@ -10,7 +10,7 @@ namespace Pos_Project1
     class Personenverwaltung
     {
         private List<Person> personen;
-        private List<Fahrzeug> angebote;
+        private List<Fahrzeug> angebote = new List<Fahrzeug>();
 
         public Personenverwaltung(List<Person> personen)
         {
@@ -20,19 +20,19 @@ namespace Pos_Project1
 
         public void readFahrzeuge()
         {
-            StreamReader reader = new StreamReader(File.OpenRead("Fahrzeug.csv"));
+            StreamReader reader = new StreamReader(File.OpenRead("../../Fahrzeug.csv"));
             string line;
             while ((line = reader.ReadLine()) != null)
             {
-                DateTime? dt = null;
-                Fahrzeug fz;
+                // DateTime? dt = null;
+                Fahrzeug fz=null;/*
                 String[] arr = line.Split(',');
                 DateTime? dat = arr[0] == "" ?  dt : Convert.ToDateTime(arr[0]);
                 String name = arr[1];
                 String seller = arr[2];
                 String offerType = arr[3];
                 int price = arr[4] == "" ? 0 : Convert.ToInt32(arr[4]);
-                String abtest = arr[5];
+                String abtest = arr[5];dx 
                 String vehicleType = arr[6];
                 int yearOfReg = arr[7] == "" ? 0 : Convert.ToInt32(arr[7]);
                 String gearBox = arr[8];
@@ -47,7 +47,8 @@ namespace Pos_Project1
                 int nrOfPictures = arr[17] == "" ? 0 : Convert.ToInt32(arr[17]);
                 int postalCode = arr[18] == "" ? 0 : Convert.ToInt32(arr[18]);
                 DateTime? lastSeen = arr[19]== "" ? dt : Convert.ToDateTime(arr[19]);
-                fz = new Fahrzeug(dat,name,seller,offerType,price,abtest,vehicleType,yearOfReg,gearBox,power,model,kilometer,monthOfReg,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen);
+                fz = new Fahrzeug(dat,name,seller,offerType,price,abtest,vehicleType,yearOfReg,gearBox,power,model,kilometer,monthOfReg,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen);*/
+                fz = new Fahrzeug(null, "", "", "", 3, "", "", 3, "", 3, "", 3, 3, "", "", "", null, 3, 3, null);
                 angebote.Add(fz);
             }
 
