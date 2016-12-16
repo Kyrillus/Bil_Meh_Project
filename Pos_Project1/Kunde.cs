@@ -9,7 +9,7 @@ namespace Pos_Project1
     class Kunde : Person
     {
         private List<Fahrzeug> interesse;
-        public Kunde(int kundenNr, string vorname, string nachname, string telNr, string anrede, string adresse, List<Fahrzeug> interesse) : base(vorname, nachname, telNr, anrede, adresse)
+        public Kunde(string vorname, string nachname, string telNr, string anrede, string adresse, List<Fahrzeug> interesse) : base(vorname, nachname, telNr, anrede, adresse)
         {
             Interesse = interesse;
         }

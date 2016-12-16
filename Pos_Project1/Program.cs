@@ -11,9 +11,10 @@ namespace Pos_Project1
         static void Main(string[] args)
         {
             List<Person> personen = new List<Person>();
-            Person p = new Person("Kyril","Mehanni","20130120302103","Herr","cockstraße 2132113");
-            personen.Add(p);
+            Kunde k = new Kunde("kyr","meh","020120120012", "herr","askkaskaks",new List<Fahrzeug>());
+            personen.Add(k);
             Personenverwaltung pv = new Personenverwaltung(personen);
+            
             
             pv.readFahrzeuge();
             /* 
