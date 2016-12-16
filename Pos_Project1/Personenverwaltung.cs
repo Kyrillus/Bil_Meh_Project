@@ -54,7 +54,7 @@ namespace Pos_Project1
 
         }
 
-        internal List<Person> Personen
+        private List<Person> Personen
         {
             get
             {
@@ -67,7 +67,7 @@ namespace Pos_Project1
             }
         }
 
-        internal List<Fahrzeug> Angebote
+        private List<Fahrzeug> Angebote
         {
             get
             {
