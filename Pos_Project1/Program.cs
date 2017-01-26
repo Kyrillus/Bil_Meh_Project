@@ -18,6 +18,7 @@ namespace Pos_Project1
             {
                 Console.WriteLine(item.ToString());
             }
+            Console.ReadLine();
 
             
             
