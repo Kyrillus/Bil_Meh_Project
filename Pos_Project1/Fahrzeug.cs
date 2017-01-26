@@ -327,7 +327,9 @@ namespace Pos_Project1
         private int postalCode;
         private DateTime? lastSeen;
              */
-            return "Fahrzeug[Austellungsdatum= "+dateCrawled+", Name="+name+""+"]";
+            return "Fahrzeug[\nAustellungsdatum= "+dateCrawled+"\nName="+name+"\nVerkäufer"+seller+
+                "\nAngebot="+offerType+"\nPreis="+price+"\nFahrzeugtyp"+vehicleType+"\nRegistrationsjahr="+yearOfRegistration+
+                "\n"+"]";
         }
     }
 }
