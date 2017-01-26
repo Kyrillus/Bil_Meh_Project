@@ -14,7 +14,7 @@ namespace Pos_Project1
         private String seller;
         private String offerType;
         private int price;
-        private String abtest;
+        //private String abtest;
         private String vehicleType;
         private int yearOfRegistration;
         private String gearbox;
@@ -30,7 +30,7 @@ namespace Pos_Project1
         private int postalCode;
         private DateTime? lastSeen;
 
-        public Fahrzeuge(DateTime? dateCrawled, string name, string seller, string offerType, int price, string abtest, string vehicleType, int yearOfRegistration, string gearbox, int power, string model, int kilometer, int monthOfRegistration, string fuelType, string brand, string notRepairedDamage, DateTime? dateCreated, int nrOfPictures, int postalCode, DateTime? lastSeen)
+        public Fahrzeuge(DateTime? dateCrawled, string name, string seller, string offerType, int price,/* string abtest,*/ string vehicleType, int yearOfRegistration, string gearbox, int power, string model, int kilometer, int monthOfRegistration, string fuelType, string brand, string notRepairedDamage, DateTime? dateCreated, int nrOfPictures, int postalCode, DateTime? lastSeen)
         {
 
             this.dateCrawled = dateCrawled;
@@ -38,7 +38,7 @@ namespace Pos_Project1
             this.seller = seller;
             this.offerType = offerType;
             this.price = price;
-            this.abtest = abtest;
+            //this.abtest = abtest;
             this.vehicleType = vehicleType;
             this.yearOfRegistration = yearOfRegistration;
             this.gearbox = gearbox;
@@ -107,7 +107,7 @@ namespace Pos_Project1
             }
         }
 
-        public string Abtest
+        /*public string Abtest
         {
             get
             {
@@ -118,7 +118,7 @@ namespace Pos_Project1
             {
                 abtest = value;
             }
-        }
+        }*/
 
         public string VehicleType
         {
