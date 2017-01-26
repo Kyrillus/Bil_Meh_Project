@@ -4,36 +4,38 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Pos_Project1
 {
     class Verwaltung
     {
         private List<Person> personen;
-        private List<Fahrzeuge> angebote = new List<Fahrzeuge>();
+        private List<Fahrzeuge> fahrzeuge = new List<Fahrzeuge>();
 
         public Verwaltung(List<Person> personen)
         {
             Personen = personen;
             readFahrzeuge();
-;        }
+            ;
+        }
 
         public void readFahrzeuge()
         {
             StreamReader reader = new StreamReader(File.OpenRead("../../Fahrzeug.csv"));
             string line;
-            int i = 0;
-            while (i!=1000 && (line = reader.ReadLine()) != null)
+
+            while ((line = reader.ReadLine()) != null)
             {
-                
-                Fahrzeuge fz=null;
+
+                Fahrzeuge fz = null;
                 String[] arr = line.Split(',');
                 DateTime dat = DateTime.ParseExact(arr[0], "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
                 String name = arr[1];
                 String seller = arr[2];
                 String offerType = arr[3];
                 int price = arr[4] == "" ? 0 : Convert.ToInt32(arr[4]);
-                String abtest = arr[5]; 
+                String abtest = arr[5];
                 String vehicleType = arr[6];
                 int yearOfReg = arr[7] == "" ? 0 : Convert.ToInt32(arr[7]);
                 String gearBox = arr[8];
@@ -48,13 +50,39 @@ namespace Pos_Project1
                 int nrOfPictures = arr[17] == "" ? 0 : Convert.ToInt32(arr[17]);
                 int postalCode = arr[18] == "" ? 0 : Convert.ToInt32(arr[18]);
                 DateTime lastSeen = DateTime.ParseExact(arr[19], "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-                fz = new Fahrzeuge(dat,name,seller,offerType,price,abtest,vehicleType,yearOfReg,gearBox,power,model,kilometer,monthOfReg,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen);
-                //fz = new Fahrzeuge(null, "", "", "", 3, "", "", 3, "", 3, "", 3, 3, "", "", "", null, 3, 3, null);
-                angebote.Add(fz);
-                i++;
+                fz = new Fahrzeuge(dat, name, seller, offerType, price, abtest, vehicleType, yearOfReg, gearBox, power, model, kilometer, monthOfReg, fuelType, brand, notRepairedDamage, dateCreated, nrOfPictures, postalCode, lastSeen);
+
+                fahrzeuge.Add(fz);
+
             }
             //dateCrawled,name,seller,offerType,price,abtest,vehicleType,yearOfRegistration,gearbox,powerPS,model,kilometer,monthOfRegistration,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen
 
+
+            var erg = new XElement("Fahrzeuge",
+                from x in fahrzeuge
+                group x by x.Brand into a
+                select new XElement("Fahrzeug",
+                    new XAttribute("Hersteller", a.Key),
+                    from b in a
+                    select new XElement("Wagen",
+                        new XAttribute("Modell", b.Model),
+                        new XElement("Ausstellungsdatum", b.DateCrawled),
+                        new XElement("Name", b.Name),
+                        new XElement("Verkäufer", b.Seller),
+                        new XElement("Angebot", b.OfferType),
+                        new XElement("Presi", b.Price),
+                        new XElement("Fahrzeugtyp", b.VehicleType),
+                        new XElement("Registrationsjahr", b.YearOfRegistration),
+                        new XElement("Registrationsmonat", b.MonthOfRegistration),
+                        new XElement("Getriebe", b.Gearbox),
+                        new XElement("PS", b.Power),
+                        new XElement("Kilometer", b.Kilometer),
+                        new XElement("Brennstofftyp", b.FuelType),
+                        new XElement("Schaden", b.NotRepairedDamage),
+                        new XElement("Erstellungsdatum", b.DateCreated))));
+
+
+            erg.Save("../../Fahrzeuge.xml");
         }
 
         public List<Person> Personen
@@ -74,12 +102,12 @@ namespace Pos_Project1
         {
             get
             {
-                return angebote;
+                return fahrzeuge;
             }
 
             set
             {
-                angebote = value;
+                fahrzeuge = value;
             }
         }
     }
