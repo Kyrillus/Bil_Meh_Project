@@ -305,10 +305,31 @@ namespace Pos_Project1
 
         public override string ToString()
         {
+            /*
+             private DateTime? dateCrawled;
+        private String name;
+        private String seller;
+        private String offerType;
+        private int price;
+        private String abtest;
+        private String vehicleType;
+        private int yearOfRegistration;
+        private String gearbox;
+        private int power;
+        private String model;
+        private int kilometer;
+        private int monthOfRegistration;
+        private String fuelType;
+        private String brand;
+        private String notRepairedDamage;
+        private DateTime? dateCreated;
+        private int nrOfPictures;
+        private int postalCode;
+        private DateTime? lastSeen;
+             */
             return "Fahrzeug[\nAustellungsdatum= "+dateCrawled+"\nName="+name+"\nVerkäufer"+seller+
-                "\nAngebot="+offerType+"\nPreis="+price+"\nFahrzeugtyp"+vehicleType+"\nRegistrationsjahr="+yearOfRegistration+"\nRegistrationsmonat"+monthOfRegistration+
-                "\nGetriebe="+gearbox+"\nPS="+power+"\nModell="+model+"\nKilometer="+kilometer+"\nBrennstofftyp="+fuelType+
-                "\nHersteller="+brand+"\nSchaden="+notRepairedDamage+"\nErstellungsdatum"+dateCreated+"]";
+                "\nAngebot="+offerType+"\nPreis="+price+"\nFahrzeugtyp"+vehicleType+"\nRegistrationsjahr="+yearOfRegistration+
+                "\n"+"]";
         }
     }
 }
