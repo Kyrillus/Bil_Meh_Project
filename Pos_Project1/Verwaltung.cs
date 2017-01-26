@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Pos_Project1
 {
@@ -17,7 +16,7 @@ namespace Pos_Project1
         {
             Personen = personen;
             readFahrzeuge();
-        }
+;        }
 
         public void readFahrzeuge()
         {
@@ -34,7 +33,7 @@ namespace Pos_Project1
                 String seller = arr[2];
                 String offerType = arr[3];
                 int price = arr[4] == "" ? 0 : Convert.ToInt32(arr[4]);
-                //String abtest = arr[5]; 
+                String abtest = arr[5]; 
                 String vehicleType = arr[6];
                 int yearOfReg = arr[7] == "" ? 0 : Convert.ToInt32(arr[7]);
                 String gearBox = arr[8];
@@ -49,22 +48,13 @@ namespace Pos_Project1
                 int nrOfPictures = arr[17] == "" ? 0 : Convert.ToInt32(arr[17]);
                 int postalCode = arr[18] == "" ? 0 : Convert.ToInt32(arr[18]);
                 DateTime lastSeen = DateTime.ParseExact(arr[19], "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-                fz = new Fahrzeuge(dat,name,seller,offerType,price,vehicleType,yearOfReg,gearBox,power,model,kilometer,monthOfReg,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen);
+                fz = new Fahrzeuge(dat,name,seller,offerType,price,abtest,vehicleType,yearOfReg,gearBox,power,model,kilometer,monthOfReg,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen);
                 //fz = new Fahrzeuge(null, "", "", "", 3, "", "", 3, "", 3, "", 3, 3, "", "", "", null, 3, 3, null);
                 angebote.Add(fz);
                 i++;
             }
             //dateCrawled,name,seller,offerType,price,abtest,vehicleType,yearOfRegistration,gearbox,powerPS,model,kilometer,monthOfRegistration,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen
-            var xe = XElement.Load("../../Xml_fahrzeuge.xml");
 
-            //var help=
-
-            /* var erg1 = new XElement("Termin",
-                from ter in v.Ter
-                select new XElement("Termin",
-                    new XAttribute("Datum", ter.Datum.ToString("H:mm - dd/MMM/yy")),
-                    new XElement("Kunde", ter.Kunde.Name)));
-             Console.WriteLine(erg1);*/
         }
 
         public List<Person> Personen
