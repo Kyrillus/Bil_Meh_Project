@@ -47,7 +47,7 @@
     <Compile Include="Kunde.cs" />
     <Compile Include="Mitarbeiter.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="Personenverwaltung.cs" />
+    <Compile Include="Verwaltung.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

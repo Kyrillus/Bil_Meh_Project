@@ -304,5 +304,11 @@ namespace Pos_Project1
                 lastSeen = value;
             }
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
     }
 }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Pos_Project1
 {
-    class Personenverwaltung
+    class Verwaltung
     {
         private List<Person> personen;
-        private List<Fahrzeug> angebote = new List<Fahrzeug>();
+        private List<Fahrzeuge> angebote = new List<Fahrzeuge>();
 
-        public Personenverwaltung(List<Person> personen)
+        public Verwaltung(List<Person> personen)
         {
             Personen = personen;
             readFahrzeuge();
@@ -22,17 +22,18 @@ namespace Pos_Project1
         {
             StreamReader reader = new StreamReader(File.OpenRead("../../Fahrzeug.csv"));
             string line;
-            while ((line = reader.ReadLine()) != null)
+            int i = 0;
+            while (i!=1000 && (line = reader.ReadLine()) != null)
             {
-                // DateTime? dt = null;
-                Fahrzeug fz=null;/*
+                
+                Fahrzeuge fz=null;
                 String[] arr = line.Split(',');
-                DateTime? dat = arr[0] == "" ?  dt : Convert.ToDateTime(arr[0]);
+                DateTime dat = DateTime.ParseExact(arr[0], "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
                 String name = arr[1];
                 String seller = arr[2];
                 String offerType = arr[3];
                 int price = arr[4] == "" ? 0 : Convert.ToInt32(arr[4]);
-                String abtest = arr[5];dx 
+                String abtest = arr[5]; 
                 String vehicleType = arr[6];
                 int yearOfReg = arr[7] == "" ? 0 : Convert.ToInt32(arr[7]);
                 String gearBox = arr[8];
@@ -43,19 +44,20 @@ namespace Pos_Project1
                 String fuelType = arr[13];
                 String brand = arr[14];
                 String notRepairedDamage = arr[15];
-                DateTime? dateCreated = arr[16] == "" ? dt : Convert.ToDateTime(arr[16]);
+                DateTime dateCreated = DateTime.ParseExact(arr[16], "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
                 int nrOfPictures = arr[17] == "" ? 0 : Convert.ToInt32(arr[17]);
                 int postalCode = arr[18] == "" ? 0 : Convert.ToInt32(arr[18]);
-                DateTime? lastSeen = arr[19]== "" ? dt : Convert.ToDateTime(arr[19]);
-                fz = new Fahrzeug(dat,name,seller,offerType,price,abtest,vehicleType,yearOfReg,gearBox,power,model,kilometer,monthOfReg,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen);*/
-                fz = new Fahrzeug(null, "", "", "", 3, "", "", 3, "", 3, "", 3, 3, "", "", "", null, 3, 3, null);
+                DateTime lastSeen = DateTime.ParseExact(arr[19], "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+                fz = new Fahrzeuge(dat,name,seller,offerType,price,abtest,vehicleType,yearOfReg,gearBox,power,model,kilometer,monthOfReg,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen);
+                //fz = new Fahrzeuge(null, "", "", "", 3, "", "", 3, "", 3, "", 3, 3, "", "", "", null, 3, 3, null);
                 angebote.Add(fz);
+                i++;
             }
-
+            //dateCrawled,name,seller,offerType,price,abtest,vehicleType,yearOfRegistration,gearbox,powerPS,model,kilometer,monthOfRegistration,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen
 
         }
 
-        private List<Person> Personen
+        public List<Person> Personen
         {
             get
             {
@@ -68,7 +70,7 @@ namespace Pos_Project1
             }
         }
 
-        private List<Fahrzeug> Angebote
+        public List<Fahrzeuge> Angebote
         {
             get
             {

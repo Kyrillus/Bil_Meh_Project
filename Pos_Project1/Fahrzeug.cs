@@ -302,5 +302,32 @@ namespace Pos_Project1
                 lastSeen = value;
             }
         }
+
+        public override string ToString()
+        {
+            /*
+             private DateTime? dateCrawled;
+        private String name;
+        private String seller;
+        private String offerType;
+        private int price;
+        private String abtest;
+        private String vehicleType;
+        private int yearOfRegistration;
+        private String gearbox;
+        private int power;
+        private String model;
+        private int kilometer;
+        private int monthOfRegistration;
+        private String fuelType;
+        private String brand;
+        private String notRepairedDamage;
+        private DateTime? dateCreated;
+        private int nrOfPictures;
+        private int postalCode;
+        private DateTime? lastSeen;
+             */
+            return "Fahrzeug[Austellungsdatum= "+dateCrawled+", Name="+name+""+"]";
+        }
     }
 }
