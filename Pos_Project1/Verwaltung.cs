@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,19 +14,45 @@ namespace Pos_Project1
         private List<Person> personen;
         private List<Fahrzeuge> fahrzeuge = new List<Fahrzeuge>();
 
+        internal List<Person> Personen
+        {
+            get
+            {
+                return personen;
+            }
+
+            set
+            {
+                personen = value;
+            }
+        }
+
+        internal List<Fahrzeuge> Fahrzeuge
+        {
+            get
+            {
+                return fahrzeuge;
+            }
+
+            set
+            {
+                fahrzeuge = value;
+            }
+        }
+
         public Verwaltung(List<Person> personen)
         {
             Personen = personen;
             readFahrzeuge();
             ;
         }
-
         public void readFahrzeuge()
         {
             StreamReader reader = new StreamReader(File.OpenRead("../../Fahrzeug.csv"));
             string line;
 
-            while ((line = reader.ReadLine()) != null)
+            int l = 0;
+            while (l != 1000 && (line = reader.ReadLine()) != null)
             {
 
                 Fahrzeuge fz = null;
@@ -52,12 +79,12 @@ namespace Pos_Project1
                 DateTime lastSeen = DateTime.ParseExact(arr[19], "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
                 fz = new Fahrzeuge(dat, name, seller, offerType, price, abtest, vehicleType, yearOfReg, gearBox, power, model, kilometer, monthOfReg, fuelType, brand, notRepairedDamage, dateCreated, nrOfPictures, postalCode, lastSeen);
 
-                fahrzeuge.Add(fz);
-
+                Fahrzeuge.Add(fz);
+                l++;
             }
             //dateCrawled,name,seller,offerType,price,abtest,vehicleType,yearOfRegistration,gearbox,powerPS,model,kilometer,monthOfRegistration,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen
 
-
+            /* // Kreariert die Fahrzeuge.xml -> Wird nur einmal ausgeführt
             var erg = new XElement("Fahrzeuge",
                 from x in fahrzeuge
                 group x by x.Brand into a
@@ -80,35 +107,10 @@ namespace Pos_Project1
                         new XElement("Brennstofftyp", b.FuelType),
                         new XElement("Schaden", b.NotRepairedDamage),
                         new XElement("Erstellungsdatum", b.DateCreated))));
-
-
             erg.Save("../../Fahrzeuge.xml");
-        }
-
-        public List<Person> Personen
-        {
-            get
-            {
-                return personen;
-            }
-
-            set
-            {
-                personen = value;
-            }
-        }
-
-        public List<Fahrzeuge> Angebote
-        {
-            get
-            {
-                return fahrzeuge;
-            }
-
-            set
-            {
-                fahrzeuge = value;
-            }
+            */
         }
     }
+
+ 
 }
