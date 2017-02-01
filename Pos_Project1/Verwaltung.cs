@@ -52,6 +52,7 @@ namespace Pos_Project1
             string line;
 
             int l = 0;
+            // Wir lesen nur 1000 Fahrzeuge aus und nicht alle 371.824
             while (l != 1000 && (line = reader.ReadLine()) != null)
             {
 
@@ -82,9 +83,11 @@ namespace Pos_Project1
                 Fahrzeuge.Add(fz);
                 l++;
             }
-            //dateCrawled,name,seller,offerType,price,abtest,vehicleType,yearOfRegistration,gearbox,powerPS,model,kilometer,monthOfRegistration,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen
+         
+    
+            // Kreariert die Fahrzeuge.xml -> Wird nur einmal ausgeführt 
 
-            /*// Kreariert die Fahrzeuge.xml -> Wird nur einmal ausgeführt
+            /*
             var erg = new XElement("Fahrzeuge",
                 from x in fahrzeuge
                 group x by x.Brand into a
