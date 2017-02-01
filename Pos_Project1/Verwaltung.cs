@@ -84,7 +84,7 @@ namespace Pos_Project1
             }
             //dateCrawled,name,seller,offerType,price,abtest,vehicleType,yearOfRegistration,gearbox,powerPS,model,kilometer,monthOfRegistration,fuelType,brand,notRepairedDamage,dateCreated,nrOfPictures,postalCode,lastSeen
 
-            /* // Kreariert die Fahrzeuge.xml -> Wird nur einmal ausgeführt
+            /*// Kreariert die Fahrzeuge.xml -> Wird nur einmal ausgeführt
             var erg = new XElement("Fahrzeuge",
                 from x in fahrzeuge
                 group x by x.Brand into a
@@ -97,7 +97,7 @@ namespace Pos_Project1
                         new XElement("Name", b.Name),
                         new XElement("Verkäufer", b.Seller),
                         new XElement("Angebot", b.OfferType),
-                        new XElement("Presi", b.Price),
+                        new XElement("Preis", b.Price),
                         new XElement("Fahrzeugtyp", b.VehicleType),
                         new XElement("Registrationsjahr", b.YearOfRegistration),
                         new XElement("Registrationsmonat", b.MonthOfRegistration),

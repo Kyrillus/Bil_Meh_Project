@@ -13,17 +13,14 @@ namespace Pos_Project1
         {
             List<Person> personen = new List<Person>();
             Verwaltung pv = new Verwaltung(personen);
-            Abfrage1();
-            Abfrage2();
-            Abfrage3();
-
+            //Abfrage1();
+            //Abfrage2();
+            //Abfrage3();
+            //Abfrage4();
+            Abfrage6();
 
             //pv.readFahrzeuge();
-            /* 
-             1. Methode, die CSV ausliest und in LIST<Fahrzeug> speichert.
-             2. Methode, die LIST<Fahrzeuge> mit LINQ als XML speichert.
-             3. Methode "Angebote" in Personenverwaltung, die Interessen und Angebote vergleicht.
-             */
+
 
 
 
@@ -60,7 +57,7 @@ namespace Pos_Project1
             var erg3 = from x in xe.DescendantsAndSelf("Fahrzeug")
                        where x.Attribute("Hersteller").Value.Equals("citroen")
                        from y in x.Descendants("Wagen")
-                       where Convert.ToInt32(y.Element("PS").Value) > 100 && Convert.ToInt32(y.Element("Presi").Value) < 20000
+                       where Convert.ToInt32(y.Element("PS").Value) > 100 && Convert.ToInt32(y.Element("Preis").Value) < 20000
                        select y;
             foreach (var item in erg3)
             {
@@ -68,6 +65,50 @@ namespace Pos_Project1
             }
             Console.ReadLine();
 
+        }
+
+        public static void Abfrage4() // Der Kunde will den teuersten Golf haben
+        {
+            var xe = XElement.Load("../../Fahrzeuge.xml");
+            var erg4 = (from x in xe.Descendants("Wagen")
+                        where x.Attribute("Modell").Value.Equals("golf")
+                        select x).Max(x => Convert.ToInt32(x.Element("Preis").Value));
+            var erg5 = (from x in xe.Descendants("Wagen")
+                        where x.Attribute("Modell").Value.Equals("golf") && Convert.ToInt32(x.Element("Preis").Value) == erg4
+                        select x);
+
+            foreach (var item in erg5)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
+        }
+
+        public static void Abfrage5() // Der Kunde will ein Fahrzeug, dass unter 10.000 euro ist, ein manuelles Getriebe hat, keinen Schaden hat und über 120 PS besitzt
+        {
+            var xe = XElement.Load("../../Fahrzeuge.xml");
+            var erg6 = (from x in xe.Descendants("Wagen")
+                        where Convert.ToInt32(x.Element("Preis").Value) < 10000 && x.Element("Getriebe").Value == "manuell" && x.Element("Schaden").Value == "nein" && Convert.ToInt32(x.Element("PS").Value) > 120
+                        select x);
+            foreach (var item in erg6)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
+
+
+        }
+        public static void Abfrage6()// Der Kunde will einen Audi a3
+        {
+            var xe = XElement.Load("../../Fahrzeuge.xml");
+            var erg6 = (from x in xe.Descendants("Wagen")
+                        where x.Attribute("Modell").Value.Contains("a3")
+                        select x);
+            foreach (var item in erg6)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
         }
     }
 }
