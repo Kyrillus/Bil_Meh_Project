@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pos_Project1
 {
-    class Person
+    public class Person
     {
         private int kundenNr = 1;
         private String vorname;
@@ -18,11 +18,11 @@ namespace Pos_Project1
         public Person(String vorname, String nachname, String telNr, String anrede, String adresse)
         {
             ++KundenNr;
-            Vorname = vorname;
-            Nachname = nachname;
-            TelNr = telNr;
-            Anrede = anrede;
-            Adresse = adresse;
+            this.Vorname = vorname;
+            this.Nachname = nachname;
+            this.TelNr = telNr;
+            this.Anrede = anrede;
+            this.Adresse = adresse;
         }
         public int KundenNr
         {
@@ -37,7 +37,7 @@ namespace Pos_Project1
             }
         }
 
-        
+
 
         public string TelNr
         {
@@ -87,7 +87,14 @@ namespace Pos_Project1
 
             set
             {
-                vorname = value;
+                if (vorname == null)
+                {
+                    throw new ArgumentException();
+                }
+                else
+                {
+                    vorname = value;
+                }
             }
         }
 
@@ -100,7 +107,14 @@ namespace Pos_Project1
 
             set
             {
-                nachname = value;
+                if (nachname == null)
+                {
+                    throw new ArgumentException();
+                }
+                else
+                {
+                    nachname = value;
+                }
             }
         }
     }
